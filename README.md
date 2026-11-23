@@ -10,7 +10,7 @@ Grothendieck and his school.
 
 | Number | Work | State | Records |
 |---|---|---|---|
-| [WB-0003](https://github.com/KokunoYumeto/mathematics-workbenches/blob/main/works/WB-0003.md) | A very ample counterexample to Kodaira vanishing on a surface, answering a question of Raynaud | version 1, being deposited | [`work/WB-0003/v1`](work/WB-0003/v1/README.md) |
+| [WB-0003](https://github.com/KokunoYumeto/mathematics-workbenches/blob/main/works/WB-0003.md) | [A very ample counterexample to Kodaira vanishing on a surface, answering a question of Raynaud](https://hexagonmath.org/2611.00936) | deposited, version 1 | [`work/WB-0003/v1`](work/WB-0003/v1/README.md) |
 
 ## How this repository works
 
