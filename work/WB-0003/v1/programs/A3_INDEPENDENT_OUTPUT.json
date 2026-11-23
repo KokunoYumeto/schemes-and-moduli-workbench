@@ -1,0 +1,45 @@
+{
+  "method": "Independent finite certificate for the section-space calculation in paper 2.\n\nNo import from the original certificate. Truncated power series are sets of\nexponents over F_2; the local unit is solved coefficientwise from\nv+v^2+...+v^8=q. We then perform column reduction in a target space of\nprincipal parts, with largest pivots. The original uses iterative inversion\nand smallest-pivot row reduction. This program uses only Python's library.",
+  "series_unit_exponents": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "parts": [
+    {
+      "eigenspace": 0,
+      "variables": 357,
+      "principal_parts": 147,
+      "rank": 147,
+      "nullity": 210,
+      "Riemann_Roch": 210
+    },
+    {
+      "eigenspace": 1,
+      "variables": 291,
+      "principal_parts": 105,
+      "rank": 105,
+      "nullity": 186,
+      "Riemann_Roch": 186
+    },
+    {
+      "eigenspace": 2,
+      "variables": 230,
+      "principal_parts": 70,
+      "rank": 70,
+      "nullity": 160,
+      "Riemann_Roch": 160
+    }
+  ],
+  "root_count": 556,
+  "h0_L": 562,
+  "h1_L_inverse": 1,
+  "h1_OY": 565,
+  "note": "Finite coefficient check only. Smoothness, ampleness and all-degree cohomology require the proofs in the paper."
+}

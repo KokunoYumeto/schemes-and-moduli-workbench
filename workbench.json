@@ -1,0 +1,9 @@
+{
+ "format": 1,
+ "name": "schemes-and-moduli-workbench",
+ "title": "Schemes and moduli",
+ "scope": "Foundations of schemes, descent, étale, de Rham and crystalline cohomology, formal and p-divisible groups, Picard schemes, abelian varieties and their moduli.",
+ "msc": "14A15; 14F30; 14K10; 14D20",
+ "index": "https://github.com/KokunoYumeto/mathematics-workbenches",
+ "licence": "CC0-1.0"
+}
