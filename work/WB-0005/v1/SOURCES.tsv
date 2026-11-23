@@ -1,0 +1,17 @@
+key	citation	address	used	how_read
+Katz1977	N. M. Katz, Formal groups and p-adic interpolation, Asterisque 41-42 (1977), 55-65		the question (section I); section V, Lemma 1 and Corollary 2	read at the cited places
+Katz1981	N. M. Katz, Divisibilities, congruences, and Cartier duality, J. Fac. Sci. Univ. Tokyo Sect. IA Math. 28 (1981), 667-678		Corollary 1.8; Main Theorem 3.11 and Lemma 3.12	read at the cited places
+Boxall1986	J. L. Boxall, p-adic interpolation of logarithmic derivatives associated to certain Lubin-Tate formal groups, Ann. Inst. Fourier 36 (1986), no. 3, 1-27		Theorem B, p. 3	read at the cited place
+BannaiKobayashi2016	K. Bannai and S. Kobayashi, Integral structures on p-adic Fourier theory, Ann. Inst. Fourier 66 (2016), 521-550	https://arxiv.org/abs/0804.4338	Propositions 3.1, 3.3, 3.5	read at the cited places (arXiv)
+BannaiKobayashi2010	K. Bannai and S. Kobayashi, Algebraic theta functions and the p-adic interpolation of Eisenstein-Kronecker numbers, Duke Math. J. 153 (2010), 229-295	https://arxiv.org/abs/math/0610163	section 4	cited as Jaswal recalls it
+Berger2025	L. Berger, Galois measures and the Katz map	https://arxiv.org/abs/2504.20558	context	read (v3)
+GHH2025	A. Graham, P. van Hoften and S. Howe, p-adic Fourier theory in families	https://arxiv.org/abs/2507.05374	Theorems 7.0.2, 7.2.6, Remark 7.2.4	read at the cited places
+KingsSprang2026	G. Kings and J. Sprang, p-adic L-functions for Hecke characters of totally imaginary fields	https://arxiv.org/abs/2603.15446	Theorem 7.1	read at the cited place
+Hazewinkel1979	M. Hazewinkel, On formal groups. The functional equation lemma and some of its applications, Asterisque 63 (1979), 73-82		(2.1)-(2.8); (5.1)-(5.4)	read at the cited places
+LubinTate1965	J. Lubin and J. Tate, Formal complex multiplication in local fields, Ann. of Math. 81 (1965), 380-387		uniqueness of the Lubin-Tate law	standard result
+LubinTate1966	J. Lubin and J. Tate, Formal moduli for one-parameter formal Lie groups, Bull. Soc. Math. France 94 (1966), 49-59		Proposition 1.1	read at the source
+Tate1967	J. Tate, p-divisible groups, Proc. Conf. Local Fields (Driebergen 1966), Springer 1967, 158-183		section 2.2, Proposition 1; section 2.3, Proposition 3	read at the cited places
+SGA3	M. Demazure and A. Grothendieck (eds.), Schemas en groupes (SGA 3), Expose VII_A (P. Gabriel)		4.3, 4.3.2, 4.3.3	read at the cited places
+Alpoge2026	L. Alpoge, Remark (announcement on the Riemann hypothesis), 20 November 2026	https://alpo.ge/remark.pdf	p. 3, timeline step 2	read at the source
+Jaswal2026	M. Jaswal, The Riemann hypothesis for Dirichlet L-functions [after Levent Alpoge], hexagon:2611.00799	https://hexagonmath.org/2611.00799	section 4.4, pp. 28-30	read at the cited places
+Three2026	Three simplifications in the Alpoge-Claude argument for Dirichlet GRH, hexagon:2611.00828	https://hexagonmath.org/2611.00828	context	abstract read

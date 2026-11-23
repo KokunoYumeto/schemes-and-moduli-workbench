@@ -1,0 +1,19 @@
+tag	date	who	effort	type	outcome	record
+WB-0005.001	2026-11-21	Claude Opus 5.5	high	targeted proof check	confirmed (the intake of the run)	https://github.com/KokunoYumeto/schemes-and-moduli-workbench/blob/main/work/WB-0005/v1/CHECKS.md
+WB-0005.005	2026-11-21	Claude Opus 5.5	high	targeted proof check	confirmed (the intake of the run)	https://github.com/KokunoYumeto/schemes-and-moduli-workbench/blob/main/work/WB-0005/v1/CHECKS.md
+WB-0005.001	2026-11-23	GPT-6 Astra	ChatGPT Pro mode	computation or formal certificate	224 orders in six Lubin-Tate examples, all bounds and witnesses passed	https://github.com/KokunoYumeto/schemes-and-moduli-workbench/blob/main/work/WB-0005/v1/CHECKS.md
+WB-0005.001	2026-11-23	Claude Opus 5.5	max	targeted proof check	every step checked line by line; confirmed	https://github.com/KokunoYumeto/schemes-and-moduli-workbench/blob/main/work/WB-0005/v1/CHECKS.md
+WB-0005.001	2026-11-23	Claude Fable 5.2	max	targeted proof check	confirmed; one false clause in the proof of the rescaling lemma repaired, no statement changed	https://github.com/KokunoYumeto/schemes-and-moduli-workbench/blob/main/work/WB-0005/v1/CHECKS.md
+WB-0005.001	2026-11-23	Claude Opus 5.5	max	targeted proof check	the edited text read again in full before deposit; no gap	https://github.com/KokunoYumeto/schemes-and-moduli-workbench/blob/main/work/WB-0005/v1/CHECKS.md
+WB-0005.002	2026-11-23	Claude Opus 5.5	max	targeted proof check	every step checked line by line; confirmed	https://github.com/KokunoYumeto/schemes-and-moduli-workbench/blob/main/work/WB-0005/v1/CHECKS.md
+WB-0005.002	2026-11-23	Claude Fable 5.2	max	targeted proof check	confirmed	https://github.com/KokunoYumeto/schemes-and-moduli-workbench/blob/main/work/WB-0005/v1/CHECKS.md
+WB-0005.002	2026-11-23	Claude Opus 5.5	max	targeted proof check	the edited text read again in full before deposit; no gap	https://github.com/KokunoYumeto/schemes-and-moduli-workbench/blob/main/work/WB-0005/v1/CHECKS.md
+WB-0005.003	2026-11-23	Claude Opus 5.5	max	targeted proof check	every step checked line by line; confirmed	https://github.com/KokunoYumeto/schemes-and-moduli-workbench/blob/main/work/WB-0005/v1/CHECKS.md
+WB-0005.003	2026-11-23	Claude Fable 5.2	max	targeted proof check	confirmed	https://github.com/KokunoYumeto/schemes-and-moduli-workbench/blob/main/work/WB-0005/v1/CHECKS.md
+WB-0005.003	2026-11-23	Claude Opus 5.5	max	targeted proof check	the edited text read again in full before deposit; no gap	https://github.com/KokunoYumeto/schemes-and-moduli-workbench/blob/main/work/WB-0005/v1/CHECKS.md
+WB-0005.004	2026-11-23	Claude Opus 5.5	max	targeted proof check	every step checked line by line; confirmed	https://github.com/KokunoYumeto/schemes-and-moduli-workbench/blob/main/work/WB-0005/v1/CHECKS.md
+WB-0005.004	2026-11-23	Claude Fable 5.2	max	targeted proof check	confirmed	https://github.com/KokunoYumeto/schemes-and-moduli-workbench/blob/main/work/WB-0005/v1/CHECKS.md
+WB-0005.004	2026-11-23	Claude Opus 5.5	max	targeted proof check	the edited text read again in full before deposit; no gap	https://github.com/KokunoYumeto/schemes-and-moduli-workbench/blob/main/work/WB-0005/v1/CHECKS.md
+WB-0005.005	2026-11-23	Claude Opus 5.5	max	targeted proof check	every step checked line by line; confirmed	https://github.com/KokunoYumeto/schemes-and-moduli-workbench/blob/main/work/WB-0005/v1/CHECKS.md
+WB-0005.005	2026-11-23	Claude Fable 5.2	max	targeted proof check	confirmed	https://github.com/KokunoYumeto/schemes-and-moduli-workbench/blob/main/work/WB-0005/v1/CHECKS.md
+WB-0005.005	2026-11-23	Claude Opus 5.5	max	targeted proof check	the edited text read again in full before deposit; no gap	https://github.com/KokunoYumeto/schemes-and-moduli-workbench/blob/main/work/WB-0005/v1/CHECKS.md
