@@ -1,6 +1,6 @@
 # Divisibility of invariant derivatives on formal groups of every height, on a question of Katz
 
-WB-0005, version 1, deposited on Hexagon on 23 November 2026.
+WB-0005, version 1: [hexagon:2611.00938](https://hexagonmath.org/2611.00938), deposited 23 November 2026.
 
 In 1977 Katz asked for explicit lower bounds on the p-adic valuation of (D^n f)(0), where D is the normalized
 invariant derivation of a one-parameter formal group of height h and f an integral power series. This work proves

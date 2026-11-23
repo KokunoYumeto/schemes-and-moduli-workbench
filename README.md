@@ -11,7 +11,7 @@ Grothendieck and his school.
 | Number | Work | State | Records |
 |---|---|---|---|
 | [WB-0003](https://github.com/KokunoYumeto/mathematics-workbenches/blob/main/works/WB-0003.md) | [A very ample counterexample to Kodaira vanishing on a surface, answering a question of Raynaud](https://hexagonmath.org/2611.00936) | deposited, version 1 | [`work/WB-0003/v1`](work/WB-0003/v1/README.md) |
-| [WB-0005](https://github.com/KokunoYumeto/mathematics-workbenches/blob/main/works/WB-0005.md) | Divisibility of invariant derivatives on formal groups of every height, on a question of Katz | version 1, being deposited | [`work/WB-0005/v1`](work/WB-0005/v1/README.md) |
+| [WB-0005](https://github.com/KokunoYumeto/mathematics-workbenches/blob/main/works/WB-0005.md) | [Divisibility of invariant derivatives on formal groups of every height, on a question of Katz](https://hexagonmath.org/2611.00938) | deposited, version 1 | [`work/WB-0005/v1`](work/WB-0005/v1/README.md) |
 
 ## How this repository works
 
