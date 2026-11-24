@@ -1,0 +1,13 @@
+retract lemma, n = 2: all 11 idempotent join-endomorphisms of P([n]) have distributive images
+retract lemma, n = 3: all 123 idempotent join-endomorphisms of P([n]) have distributive images
+retract lemma, n = 4: all 2360 idempotent join-endomorphisms of P([n]) have distributive images
+G(Z/2): semiring axioms ok; 3 ideals, 2 primes, {τ} the unique minimal prime
+G(Z/3): semiring axioms ok; 3 ideals, 2 primes, {τ} the unique minimal prime
+G(Z/4): semiring axioms ok; 4 ideals, 2 primes, {τ} the unique minimal prime
+G(Z/5): semiring axioms ok; 3 ideals, 2 primes, {τ} the unique minimal prime
+G(Z/6): semiring axioms ok; 5 ideals, 3 primes, {τ} the unique minimal prime
+G(Z/8): semiring axioms ok; 5 ideals, 2 primes, {τ} the unique minimal prime
+G(Z/9): semiring axioms ok; 4 ideals, 2 primes, {τ} the unique minimal prime
+G(Z/12): semiring axioms ok; 7 ideals, 3 primes, {τ} the unique minimal prime
+product theorem G(Z/6) = G(Z/2) x_B G(Z/3): ok, 7 elements
+classification checks on 80 random subsemimodules of G(F_p)^n (p = 2, 3; n = 2..4): all ok

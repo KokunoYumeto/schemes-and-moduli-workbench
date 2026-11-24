@@ -1,0 +1,293 @@
+% Hexagon note H22, version 2, 23 November 2026. CC0 1.0.
+% Text of version 1: Claude Opus 5.5 at effort max. Edited into version 2 by Claude Fable 5.2 at effort max.
+% Version 3 (23 Nov 2026, Claude Opus 5.5 at effort max): title (R_0 is a semiring), and the credit to Caviglia-Faul-Manuell-Mesiti, arXiv:2607.12944, read at the source.
+% Version 4 (24 Nov 2026, Claude Opus 5.5 at effort max, main session 329fb1e6): two sentences corrected (section 1, the known cases; the remark after the proof of Theorem 3, now rem:one-idempotent): an R-module is projective over R_0 only if it is zero. Found by the SPLIT_ZERO_AFTER_FGJM run (GPT-6 Astra, ChatGPT Pro mode, FND-012/013), checked by its intake (Claude Fable 5.2 at effort max).
+% Deposit text (WB-0008, 24 Nov 2026, Claude Opus 5.5 at effort max, main session 329fb1e6): the depositor's idea credited (the user's word: the split zero is the user's own idea); the pre-deposit correction and the Crossref check of the references recorded; the record links; the date.
+\documentclass[11pt]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,microtype}
+\usepackage[margin=27mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
+\usepackage{xurl}
+\setlength{\emergencystretch}{2em}
+
+\newcommand{\workbenchurl}{https://github.com/KokunoYumeto/schemes-and-moduli-workbench/tree/main/work/WB-0008/v1}
+\newcommand{\recordurl}{https://github.com/KokunoYumeto/mathematics-workbenches/blob/main/works/WB-0008.md}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{maincor}[theorem]{Corollary}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{proposition}[thm]{Proposition}
+\theoremstyle{remark}
+\newtheorem{remark}[thm]{Remark}
+\newtheorem{example}[thm]{Example}
+
+\newcommand{\B}{\mathbb B}
+\newcommand{\oz}{\widehat{0}}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Idl}{Idl}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Ann}{Ann}
+
+\title[Spectrum, semimodules and projectives of $R_0$]{Spectrum, semimodules and projectives of the inverse semiring $R_0$ of Faul, Goswami, Joubert and Manuell}
+\author{}
+\date{24 November 2026}
+
+\begin{document}
+
+\begin{abstract}
+Faul, Goswami, Joubert and Manuell made the case for inverse semirings, the semirings whose additive monoid is an inverse monoid. One of their basic examples is the semiring $R_0$ obtained from a ring $R$ by adjoining a new zero; they showed that $\mathbb Z_0$ is the initial inverse semiring and that every module over an inverse semiring has an inverse additive monoid. Caviglia, Faul, Manuell and Mesiti then described every inverse semiring by an idempotent semiring and a lax monoidal functor from it to abelian groups; for $R_0$ the idempotent semiring is the Boolean semifield. For a nonzero commutative ring $R$ we determine the prime spectrum of $R_0$, its congruences, its semimodules and its finitely generated projective semimodules. The spectrum is $\Spec R$ with one new point below all others, at which the localization is the Boolean semifield. The semimodules are the strong semilattices of $R$-modules: families of $R$-modules indexed by a join-semilattice, with linear maps along the order; this is the counterpart for semimodules of the description of Caviglia, Faul, Manuell and Mesiti. The finitely generated projective ones are classified by finite posets carrying a finitely generated projective $R$-module at each element, and their semilattices of idempotents are exactly the finite distributive lattices. Since the $\mathbb Z_0$-semimodules are the commutative inverse monoids, the case $R=\mathbb Z$ is Clifford's theorem together with a classification of the finitely generated projective commutative inverse monoids. Finally, $R\mapsto R_0$ is fully faithful on commutative rings, and when the units of $R$ have no common nonzero fixed point, the two zeros of $R_0$ are exactly the common fixed points of the units. The construction began as an idea of the depositor's, in a conversation with Gemini~2.5 Pro (Gemini app). The results were produced by Gemini~2.5 Deep Think (Gemini app, Deep Think mode) and by GPT-5-series Pro models (ChatGPT Pro mode, at reasoning effort ultra), checked and written up by Claude Opus 5.5 at effort max, and checked again and edited by Claude Fable 5.2 at effort max. No human has checked the proofs.
+\end{abstract}
+
+\maketitle
+
+\section{The construction and the theorems}
+
+\subsection{The construction}
+A \emph{semiring} $(S,+,0,\cdot,1)$ has a commutative monoid $(S,+,0)$ and a monoid $(S,\cdot,1)$, with multiplication distributing over addition and $0x=0=x0$. It is an \emph{inverse semiring} if $(S,+,0)$ is an inverse monoid: every $x$ has a unique $-x$ with $x+(-x)+x=x$ and $(-x)+x+(-x)=-x$ \cite[\S1]{FGJM}. Rings are inverse semirings, with the usual negative, and so are idempotent semirings, with $-x=x$. Following \cite{FGJM} we write $0_x=x+(-x)$. It is an additive idempotent, and in a ring it is the zero.
+
+For an inverse semiring $R$, Definition~3.6 of \cite{FGJM} gives the inverse semiring $R_0=R\sqcup\{0\}$. The operations of $R$ are kept on $R$, and the new element $0$ is an identity for addition and absorbing for multiplication. A homomorphism $f\colon R\to S$ is sent to $f_0\colon R_0\to S_0$, which is $f$ on $R$ and sends $0$ to $0$; so $R\mapsto R_0$ is a functor. The zero of $R$ is no longer the zero of $R_0$. In \cite{FGJM} it is written $\oz$, and we keep this notation.
+
+Throughout, $R$ is a commutative ring, and $R\ne0$ unless the zero ring is expressly allowed. In $R_0$ the old zero is $\oz=0_1=1+(-1)$. It satisfies $\oz+x=x$ and $\oz\,x=\oz$ for $x\in R$, and $\oz+\oz=\oz=\oz\cdot\oz$, while $0+x=x$ and $0\cdot x=0$ for every $x\in R_0$. So $R_0$ has exactly two additive idempotents, $0$ and $\oz$, and it is neither a ring nor an idempotent semiring. The smallest example is $(\mathbb F_2)_0=\{0,\oz,1\}$, in which $1+1=\oz$ and $\oz+1=1$. We write $\B=\{0,1\}$ for the Boolean semifield, in which $1+1=1$.
+
+An \emph{$R_0$-semimodule} is a commutative monoid $(M,+,0_M)$ with an action of $R_0$ that is distributive in both variables and satisfies $(ab)m=a(bm)$, $1m=m$, $0m=0_M$ and $a0_M=0_M$ \cite[Definition 2.13]{FGJM}. Homomorphisms are the additive maps that commute with the action. A semimodule is \emph{finitely generated} if it is a quotient of a free semimodule $R_0^n$, and \emph{projective} if homomorphisms out of it lift along surjective homomorphisms. A finitely generated semimodule is projective exactly when it is a retract of some $R_0^n$.
+
+A \emph{strong semilattice of $R$-modules} consists of a join-semilattice $L$ with least element $\bot$, an $R$-module $A_l$ for each $l\in L$, and $R$-linear maps $\rho_{l,l'}\colon A_l\to A_{l'}$ for $l\le l'$, with $\rho_{l,l}=\mathrm{id}$ and $\rho_{l',l''}\rho_{l,l'}=\rho_{l,l''}$. A morphism to $(L',A',\rho')$ is a map $\phi\colon L\to L'$ preserving joins and $\bot$, together with $R$-linear maps $A_l\to A'_{\phi(l)}$ that commute with the maps $\rho$ and $\rho'$. For $R=\mathbb Z$ these are the strong semilattices of abelian groups of semigroup theory \cite[Ch.~4]{Howie}. We also call a strong semilattice of $R$-modules a \emph{support diagram}.
+
+\subsection{The theorems}
+
+\begin{theorem}[spectrum and congruences]\label{thm:spec}
+Let $R$ be a nonzero commutative ring.
+\begin{enumerate}
+\item[(a)] The ideals of $R_0$ are $\{0\}$ and $J\cup\{0\}$ for the ideals $J$ of $R$. Its prime ideals are $\eta=\{0\}$ and $P\cup\{0\}$ for $P\in\Spec R$.
+\item[(b)] Every point of $\Spec R_0$ lies in the closure of $\eta$, the set $\{\eta\}$ is open, and its complement $V(\oz)$ is homeomorphic to $\Spec R$. Equivalently, the open sets of $\Spec R_0$ are the empty set and the sets $\{\eta\}\cup U$ with $U$ open in $\Spec R$. The localization of $R_0$ at $\eta$ is $\B$. If $\dim R<\infty$, then $\dim R_0=\dim R+1$.
+\item[(c)] The congruences of $R_0$ are the following two for each ideal $J$ of $R$. Both restrict to congruence modulo $J$ on $R$. In the first, $0$ lies in the class of $\oz$, and the quotient is the ring $R/J$. In the second, $0$ is alone in its class, and the quotient is $(R/J)_0$; for $J=R$ this is $\B$.
+\end{enumerate}
+\end{theorem}
+
+\begin{theorem}[semimodules]\label{thm:mod}
+For an $R_0$-semimodule $M$ put $\varepsilon(m)=\oz\,m$, $L_M=\oz M$ and $M_l=\varepsilon^{-1}(l)$ for $l\in L_M$. Then $L_M$ is the set of additive idempotents of $M$, and it is a join-semilattice under $+$ with least element $0_M$. Each $M_l$ is an $R$-module with zero $l$. The maps $T_{l,l'}(m)=m+l'$, for $l\le l'$, make $(L_M,(M_l),(T_{l,l'}))$ a strong semilattice of $R$-modules, and $m+n=T(m)+T(n)$, the sum on the right being taken in the fibre over $\varepsilon(m)+\varepsilon(n)$. This is an equivalence from the category of $R_0$-semimodules to the category of strong semilattices of $R$-modules. Under it the cancellative semimodules correspond to the $R$-modules.
+\end{theorem}
+
+For a finite poset $J$ let $\Idl(J)$ be the lattice of its order ideals (its down-sets), under union and intersection. For finitely generated projective $R$-modules $Q_j$, $j\in J$, of which some may be zero, let $P(J,Q)$ be the $R_0$-semimodule of the strong semilattice over $\Idl(J)$ with fibre $\bigoplus_{j\in U}Q_j$ over $U$ and the inclusions of summands as maps.
+
+\begin{theorem}[projectives]\label{thm:proj}
+A finitely generated $R_0$-semimodule is projective if and only if it is isomorphic to some $P(J,Q)$. In particular the semilattices of idempotents of the finitely generated projective $R_0$-semimodules are exactly the finite distributive lattices.
+\end{theorem}
+
+\begin{maincor}[the case $R=\mathbb Z$]\label{cor:Z}
+Every commutative inverse monoid has exactly one structure of $\mathbb Z_0$-semimodule, and the category of $\mathbb Z_0$-semimodules is isomorphic to the category of commutative inverse monoids. Hence a finitely generated commutative inverse monoid is projective if and only if it is isomorphic to $P(J,(\mathbb Z^{n_j})_{j\in J})$ for a finite poset $J$ and integers $n_j\ge0$.
+\end{maincor}
+
+\subsection{What the theorems say, and why they matter}
+Theorem~\ref{thm:spec} says that $\Spec R_0$ is $\Spec R$ with one point $\eta$ added below all others. At $\eta$ every element of $R$, the old zero included, becomes the unit, and only the new zero stays zero. The semiring $R_0$ is not idempotent, but its localization at $\eta$ is $\B$, the finite semifield that is not a field, which Connes and Consani take as the base of geometry in characteristic one \cite{CCs,CC}.
+
+Theorem~\ref{thm:mod} is Clifford's theorem with coefficients. By \cite[Proposition 6.1]{FGJM} the additive monoid of a semimodule over an inverse semiring is an inverse monoid, and by Clifford's theorem a commutative inverse monoid is a strong semilattice of abelian groups \cite{Clifford}. Over $R_0$ the groups are $R$-modules, the maps are linear, and nothing else is needed: the semimodule is the diagram.
+
+Theorem~\ref{thm:proj} classifies the finitely generated projectives completely; the poset $J$ and the modules $Q_j$ are determined by the semimodule (Proposition~\ref{prop:unique}). It contains two known cases. For the one-point poset with label $V$ it gives the semimodule $\{0\}\sqcup V$, whose fibre over $\oz$ is the finitely generated projective $R$-module $V$; an $R$-module itself, a semimodule with one idempotent, is projective over $R_0$ only if it is zero (Remark~\ref{rem:one-idempotent}). For the zero ring, $R_0$ is $\B$, a $\B$-semimodule is a join-semilattice with least element, and the statement is that the finite projective ones are the finite distributive lattices, the finite case of the theorem of Horn and Kimura \cite{HK}. In general the two are coupled: the lattice says which sums of the $Q_j$ occur as fibres.
+
+The reason to study $R_0$ for all $R$, and $\mathbb Z_0$ above all, is in \cite{FGJM}. The semiring $\mathbb Z_0$ is the initial inverse semiring, so every commutative inverse semiring is a $\mathbb Z_0$-algebra \cite[Proposition 5.1]{FGJM}; and $R_0$ is the simplest kind of inverse semiring that is neither a ring nor idempotent, since it has two additive idempotents \cite[Corollary 4.12]{FGJM}. Theorem~\ref{thm:spec} for $R=\mathbb Z$ therefore describes the base over which every commutative inverse semiring lives: $\Spec\mathbb Z$ with a generic point whose residue semifield is $\B$. Corollary~\ref{cor:Z} says that the module theory over this base is the theory of commutative inverse monoids, and classifies its finitely generated projective objects.
+
+\subsection{Credit}
+The construction $R\mapsto R_0$, as a functor, with the notation $\oz$, is Definition 3.6 of \cite{FGJM}; for a ring $R$ it is the case $A=0$ of their Construction 3.5. The following facts about it are theirs as well. It is the free adjunction of a zero to a zeroless inverse semiring \cite[\S3.1]{FGJM}. The semiring $\mathbb Z_0$ is initial \cite[Proposition 5.1]{FGJM}. Every inverse semiring has a ring reflection and an idempotent reflection \cite[Proposition 4.13]{FGJM}, and an inverse semiring in which idempotents cannot be added to non-idempotents to give idempotents embeds into the product of the two \cite[Theorem 7.2]{FGJM}; for $R_0$ these are the maps to $R$ and to $\B$ of Lemma~\ref{lem:normal}. The elements $x$ with $0_x=0_1$ form a ring of scalars, over which the group of each idempotent is a module \cite[Propositions 4.7 and 4.8]{FGJM}; in $R_0$ the ring of scalars is $R$. Modules over inverse semirings have inverse additive monoids \cite[Proposition 6.1]{FGJM}, and subtractive ideals are the kernels of homomorphisms \cite[Definition 6.3, Theorem 6.5]{FGJM}. Finally, \cite[\S7]{FGJM} announces a paper of Faul and Manuell, which has appeared as \cite{CFMM}, by Caviglia, Faul, Manuell and Mesiti. Its \S\S4--5 recover, through the monoidal Grothendieck construction, the known description of Clifford monoids by functors from their semilattice of idempotents to groups \cite{Pasku}. Its Theorem~8.5 describes an inverse semiring by an idempotent semiring $Q$ and a lax monoidal functor $F\colon Q\to\mathbf{Ab}$, the elements being the pairs $(e,g)$ with $g\in F(e)$; by its Remark~8.7, Construction~3.5 of \cite{FGJM} is the case where $Q$ is the two-element lattice. For $R_0$ this is $Q=\B$, with $F(0)=0$ and $F(1)=R$. That paper does not treat semimodules. Theorem~\ref{thm:mod} is the corresponding statement for the semimodules over $R_0$: their idempotents form a join-semilattice $L$, and the semimodule is a functor from $L$ to $R$-modules.
+
+Clifford's theorem is from \cite{Clifford}; see \cite[Ch.~4]{Howie}. Birkhoff's representation of finite distributive lattices \cite{Birkhoff} is used in Section~\ref{sec:proj}.
+
+What is supplied here: the spectrum, the localization at $\eta$ and the list of congruences (Theorem~\ref{thm:spec}); the equivalence of Theorem~\ref{thm:mod}; the classification of Theorem~\ref{thm:proj} with its uniqueness; Corollary~\ref{cor:Z}; and, in Section~\ref{sec:sym}, that the functor of \cite{FGJM} is full and faithful on commutative rings, and the description of the two zeros by the action of the units.
+
+\subsection{Context}
+Projective semilattices were determined by Horn and Kimura \cite{HK}, and projective distributive lattices by Balbes and Horn \cite{BH}. Lemma~\ref{lem:retract} is the finite case in the form we need, and we prove it directly. Semirings that are strong distributive lattices of rings are studied under the name of Clifford semirings; \cite[\S1]{FGJM} gives references. Semirings with a negation map and their quasi-zeros $a+(-a)$ are studied by Rowen \cite{Rowen}; the quasi-zero of an element $m$ of an $R_0$-semimodule is $\varepsilon(m)$, so Theorem~\ref{thm:mod} describes the semimodules as fibred over their quasi-zeros.
+
+Two conventions for the spectrum of a semiring are in use: all prime ideals, or only the subtractive ones, which are the kernels. For $R_0$ they agree, because every ideal of $R_0$ is subtractive (Proposition~\ref{prop:golan}). The fibre of an $R_0$-semimodule $M$ at the new point is its semilattice of idempotents $L_M$ (Remark~\ref{rem:generic}), a $\B$-module; these are the objects of the homological algebra in characteristic one of Connes and Consani \cite{CC}. We prove nothing about their arithmetic site or scaling site.
+
+We searched for the classification of Theorem~\ref{thm:proj} and did not find it; the search is described in the note on method, and it was not exhaustive.
+
+\subsection{Scope}
+Proved: Theorems~\ref{thm:spec}, \ref{thm:mod} and \ref{thm:proj} for every nonzero commutative ring $R$, Corollary~\ref{cor:Z}, and the results of Section~\ref{sec:sym} for every commutative ring. Not treated: projective semimodules that are not finitely generated, injective semimodules, noncommutative $R$, sheaves on $\Spec R_0$, and the other inverse semirings of \cite{FGJM}.
+
+\section{Proof overview}
+
+A semiring has no subtraction, so the tools of module theory are missing: a submodule is not a kernel, a surjection need not split off a complement, and a projective semimodule is not visibly a summand of a free one. What replaces them over $R_0$ is the old zero. In $R_0$ one has $1+\oz=1$ and $1+(-1)=\oz$, so in every semimodule $m+\oz\,m=m$ and $m+(-1)m=\oz\,m$. Thus $\oz\,m$ is an additive idempotent that serves $m$ as a zero, and $(-1)m$ as a negative. The elements with the same $\oz\,m$ form an abelian group, on which $R$ acts because $r\,\oz=\oz$; the idempotents form a semilattice; and adding an idempotent moves an element from one group to a higher one. This is Theorem~\ref{thm:mod}. The same two identities give Theorem~\ref{thm:spec}: an ideal that contains an element of $R$ contains $\oz$ and is then an ideal of the ring $R$ together with $0$, and a congruence is determined by its restriction to $R$ and by whether it identifies the two zeros.
+
+For Theorem~\ref{thm:proj} the difficulty is that a retract of a free semimodule $R_0^n$ is a retract in two layers at once. On idempotents, $R_0^n$ has the Boolean lattice of subsets of $\{1,\dots,n\}$, the support of an element being the set of coordinates where it is not $0$; a retraction restricts to a retraction of this lattice by join-preserving maps, and the retracts of a finite Boolean lattice are exactly the finite distributive lattices (Lemma~\ref{lem:retract}). On fibres one gets retracts of free $R$-modules, hence projective modules, but one must still show that they fit together as sums over order ideals. The step that does this proves that the images of the fibres in a higher fibre form a distributive lattice of submodules, with $M_{l\vee l'}=M_l+M_{l'}$ and $M_l\cap M_{l'}=M_{l\wedge l'}$; here the two zeros are used, an element of $R_0^n$ being cut down to a smaller support by replacing coordinates $\oz$ by $0$. In the other direction, $P(J,R)$ is a retract of $R_0^J$ by the map that fills the down-closure of the support with $\oz$.
+
+The hypotheses enter as follows. Commutativity of $R$ is used for the spectrum and the localization. $R\ne0$ is used in Theorem~\ref{thm:spec} only, where it makes $\oz\ne1$ and $\Spec R$ nonempty. Finite generation is used through Lemma~\ref{lem:retract} and Birkhoff's theorem. Section~\ref{sec:sym} uses only that $R_0$ has no zero-sums and no zero divisors: a homomorphism cannot send the old zero to the new one, and a unit $u$ fixes an element of $R$ exactly when $u-1$ kills it.
+
+\section{The spectrum and the congruences}
+
+This section proves Theorem~\ref{thm:spec}. We begin with the two maps that see the two zeros.
+
+\begin{lemma}\label{lem:normal}
+Let $p\colon R_0\to R$ be the identity on $R$ with $p(0)=\oz$, and let $\chi\colon R_0\to\B$ send $R$ to $1$ and $0$ to $0$. Both are surjective homomorphisms of semirings, and $(p,\chi)\colon R_0\to R\times\B$ is injective, with image $\{(x,b):b=0\Rightarrow x=\oz\}$.
+\end{lemma}
+
+\begin{proof}
+A sum or a product in $R_0$ involving $0$ is the other summand, respectively $0$; applying $p$ gives the other summand, respectively $\oz$, as it must in $R$. For $\chi$, a sum lies in $R$ if one summand does, and a product lies in $R$ only if both factors do. On $R$ the map $p$ is injective, and $0$ is the only element with $\chi=0$.
+\end{proof}
+
+The map $p$ is the ring reflection of $R_0$ and $\chi$ its idempotent reflection, in the sense of \cite[Proposition 4.13]{FGJM}; the embedding is that of \cite[Theorem 7.2]{FGJM}. We call $\chi$ the \emph{support map}.
+
+\begin{proof}[Proof of Theorem~\ref{thm:spec}]
+(a) An ideal $I\ne\{0\}$ contains some $r\in R$, hence $\oz=\oz\,r$ and $-x=(-1)x$ for each of its elements $x\in R$. So $I\cap R$ is an ideal of $R$ and $I=(I\cap R)\cup\{0\}$; conversely each $J\cup\{0\}$ is an ideal. A product $xy$ equals $0$ only if $x=0$ or $y=0$, so $\{0\}$ is prime, and $P\cup\{0\}$ is prime exactly when $P$ is.
+
+(b) Every prime other than $\eta$ contains $\oz$, so $\{\eta\}$ is the complement of the closed set $V(\oz)$, and $P\cup\{0\}\mapsto P$ is a homeomorphism from $V(\oz)$ to $\Spec R$, the closed sets on both sides being given by the ideals $J$. As $\eta$ is contained in every prime, every point lies in its closure; so a nonempty open set contains $\eta$, and the description of the open sets follows. Localizing at $\eta$ inverts the elements of $R$. In the localization the idempotent $\oz$ is invertible, so $\oz=1$, and then every $r\in R$, which satisfies $r\,\oz=\oz$, becomes $1$. The images of $0$ and $1$ stay distinct, because $u\cdot0=u\cdot1$ for no $u\in R$. So the localization is $\{0,1\}$ with $1+1=1$. A chain of primes of $R_0$ is a chain of primes of $R$, possibly with $\eta$ added below it, which gives the dimension.
+
+(c) Let $\sim$ be a congruence. If $x\sim y$ with $x,y\in R$, then adding $-y$ gives $x-y\sim\oz$; so the elements of $R$ congruent to $\oz$ form an ideal $J$, and on $R$ the congruence is $x-y\in J$. If $0\sim r$ for some $r\in R$, then $0=0\cdot\oz\sim r\,\oz=\oz$, so the class of $0$ is $J\cup\{0\}$ and the quotient is $R/J$. Otherwise $0$ is alone in its class and the quotient is $(R/J)_0$. Both relations are congruences: they are the kernels of $R_0\to R\to R/J$ and of the map $R_0\to(R/J)_0$ induced by $R\to R/J$.
+\end{proof}
+
+\begin{example}
+For $R=\mathbb F_2$ the ideals of $R_0=\{0,\oz,1\}$ are $\{0\}\subset\{0,\oz\}\subset R_0$, and the first two are prime: the spectrum has a closed point and the generic point $\eta$. There are four congruences, with quotients $(\mathbb F_2)_0$, $\mathbb F_2$, $\B$ and the zero semiring. For $R=\mathbb Z$ the spectrum is the chain of specializations $\eta\rightsquigarrow\{0,\oz\}\rightsquigarrow p\mathbb Z\cup\{0\}$, of dimension $2$.
+\end{example}
+
+\begin{remark}[products]\label{rem:product}
+For commutative rings $R$ and $S$, the map $(x,y)\mapsto(x,y)$ on $R\times S$ and $0\mapsto(0,0)$ is an isomorphism from $(R\times S)_0$ to the fibre product $R_0\times_\B S_0$ over the two support maps: a pair $(x,y)$ has $\chi(x)=\chi(y)$ exactly when both entries are old or both are $0$. So $\Spec(R\times S)_0$ is the disjoint union of $\Spec R$ and $\Spec S$ with one generic point common to both.
+\end{remark}
+
+\begin{remark}[counting quotients]
+For the ring of integers $\mathcal O_K$ of a number field, the finite quotients of $(\mathcal O_K)_0$ of the first kind are the rings $\mathcal O_K/J$, counted by $\sum_JN(J)^{-s}=\zeta_K(s)$, and those of the second kind have $N(J)+1$ elements. For $R=\mathbb Z$, counting all finite quotient semirings of $\mathbb Z_0$ by their number of elements gives $\sum_{n\ge1}n^{-s}+\sum_{n\ge1}(n+1)^{-s}=2\zeta(s)-1$.
+\end{remark}
+
+\section{Semimodules}\label{sec:mod}
+
+This section proves Theorem~\ref{thm:mod} and Corollary~\ref{cor:Z}.
+
+\begin{proof}[Proof of Theorem~\ref{thm:mod}]
+In $R_0$ we have $1+\oz=1$, $1+(-1)=\oz$ and $\oz+\oz=\oz=\oz\cdot\oz$. Hence, for $m,n\in M$,
+\[
+m+\varepsilon(m)=m,\qquad m+(-1)m=\varepsilon(m),\qquad\varepsilon(m)+\varepsilon(m)=\varepsilon(m),
+\]
+and $\varepsilon(\varepsilon(m))=\varepsilon(m)$, $\varepsilon(m+n)=\varepsilon(m)+\varepsilon(n)$. So $\varepsilon$ is an additive retraction of $M$ onto $L_M$, the elements of $L_M$ are idempotent, and $L_M$ is a join-semilattice under $+$, with $l\le l'$ when $l+l'=l'$ and with least element $0_M=\varepsilon(0_M)$. The fibre $M_l$ is closed under addition, $l$ is an identity for it, since $m+l=m+\varepsilon(m)=m$, and $(-1)m$ lies in $M_l$ and is an inverse of $m$. So each $M_l$ is an abelian group and $M$ is the disjoint union of these groups. An idempotent of $M$ is the identity of the group that contains it, so it lies in $L_M$. This is Clifford's description of the commutative inverse monoid $(M,+)$ \cite{Clifford}, \cite[Ch.~4]{Howie}; its structure maps are the $T_{l,l'}$, which are additive and satisfy $T_{l',l''}T_{l,l'}=T_{l,l''}$ because $l'+l''=l''$.
+
+For $r\in R$ we have $r\,\oz=\oz$, so $\varepsilon(rm)=\varepsilon(m)$ and $r\,l=l$ for $l\in L_M$. Thus $R$ acts on each fibre, the fibre is an $R$-module with zero $\oz\,m=l$, and $T_{l,l'}(rm)=rm+l'=r(m+l')$. The formula $m+n=T(m)+T(n)$ is the identity $m+n=(m+l)+(n+l)$ for $l=\varepsilon(m)+\varepsilon(n)$.
+
+Conversely, a strong semilattice $(L,A,\rho)$ defines on the disjoint union of the $A_l$ the sum $x\boxplus y=\rho(x)+\rho(y)$ in the fibre over the join, the product $rx$ computed in the fibre of $x$ for $r\in R$, and $0\cdot x=0\in A_\bot$. This is an $R_0$-semimodule with zero $0\in A_\bot$: associativity of $\boxplus$ is the functoriality of $\rho$, and the laws involving $0\in R_0$ hold because $0\in A_\bot$ is an identity for $\boxplus$. Its idempotents are the zeros of the fibres, its fibres are the $A_l$ and its transports the $\rho_{l,l'}$. A homomorphism of semimodules commutes with $\varepsilon$, hence maps idempotents to idempotents and fibres to fibres, linearly and compatibly with the transports; and a morphism of strong semilattices is additive for $\boxplus$. So the two constructions are mutually inverse equivalences. Finally, if $M$ is cancellative, then $l+l=l=l+0_M$ gives $l=0_M$ for every idempotent, so $M$ is one fibre, an $R$-module; and an $R$-module is cancellative.
+\end{proof}
+
+\begin{example}\label{ex:mod}
+The semimodule $R_0$ has the idempotents $0<\oz$ and the fibres $\{0\}$ and $R$. An $R$-module, regarded as a semimodule through $p$, is one fibre. The semimodule $\B$, through the support map $\chi$, has two idempotents and two zero fibres. The free semimodule $R_0^n$ has the Boolean lattice of subsets of $\{1,\dots,n\}$ as its semilattice, the fibre over $S$ being $R^S$, embedded in $R_0^n$ by $0$ on the other coordinates; its transports extend a vector by $\oz$.
+\end{example}
+
+\begin{remark}[the fibre at the new point]\label{rem:generic}
+The semilattice $L_M$ is a semimodule on which $R$ acts trivially, that is, a $\B$-module regarded as an $R_0$-semimodule through $\chi$, and $\varepsilon\colon M\to L_M$ is a homomorphism. It is the universal homomorphism from $M$ to a $\B$-module $N$: on $N$ the element $\oz$ acts as the identity, so a homomorphism $f\colon M\to N$ satisfies $f(m)=\oz f(m)=f(\varepsilon(m))$.
+\end{remark}
+
+\begin{proof}[Proof of Corollary~\ref{cor:Z}]
+Let $(M,+,0_M)$ be a commutative inverse monoid. For $x\in M$ the elements $x$ and $-x$ lie in the maximal subgroup $H_x$ of $M$ with identity $0_x$. Let $n\in\mathbb Z$ act on $x$ by the $n$-th multiple in the group $H_x$, so that $\oz\,x=0_x$, and put $0\cdot x=0_M$. The laws of a semimodule hold: those in the first variable because $n\mapsto nx$ is a homomorphism $\mathbb Z\to H_x$ and $H_{nx}=H_x$, those in the second because $-(x+y)=(-x)+(-y)$ and $0_{x+y}=0_x+0_y$ in a commutative inverse monoid. Conversely, in any $\mathbb Z_0$-semimodule $1x=x$ fixes the action of the positive integers, $(-1)x$ is the inverse of $x$ by the proof of \cite[Proposition 6.1]{FGJM}, $\oz\,x=x+(-1)x$ and $0x=0_M$; so the structure is unique. A homomorphism of monoids between commutative inverse monoids preserves inverses, hence the action. This proves the first statement, which is implicit in \cite[Proposition 5.1 and Example 3.3]{FGJM}. Surjections, free objects and finite generation correspond, so the second statement is Theorem~\ref{thm:proj} for $R=\mathbb Z$, where the finitely generated projective modules are the $\mathbb Z^n$.
+\end{proof}
+
+\section{Projectives}\label{sec:proj}
+
+This section proves Theorem~\ref{thm:proj}. The first lemma is the statement on idempotents.
+
+\begin{lemma}\label{lem:retract}
+A finite join-semilattice with least element is a retract of a finite Boolean lattice $\mathcal P(\{1,\dots,n\})$, by maps preserving joins and the least element, if and only if it is a distributive lattice.
+\end{lemma}
+
+\begin{proof}
+If $L$ is such a retract through $i_0\colon L\to\mathcal P$ and $r_0\colon\mathcal P\to L$, then $\kappa=i_0r_0$ is an idempotent join-endomorphism of $\mathcal P=\mathcal P(\{1,\dots,n\})$ and $L\cong\kappa(\mathcal P)$ as posets. The image is closed under unions, and it has the meet $U\wedge V=\kappa(U\cap V)$: this lies below $U$ and $V$, and above every element of the image below both. As $\kappa$ preserves unions, $U\wedge(V\cup W)=\kappa((U\cap V)\cup(U\cap W))=(U\wedge V)\cup(U\wedge W)$. Conversely, by Birkhoff's theorem a finite distributive lattice is $\Idl(J)$ for a finite poset $J$ \cite{Birkhoff}, and $\Idl(J)\subseteq\mathcal P(J)$ is a retract through $S\mapsto{\downarrow}S$, which preserves unions and fixes order ideals.
+\end{proof}
+
+\begin{example}\label{ex:chain}
+Let $J=\{a<b\}$ and $Q_a=Q_b=R$. Then $P(J,Q)$ is the subsemimodule $\{(0,0)\}\cup(R\times\{0\})\cup(R\times R)$ of $R_0^2$, with idempotents $(0,0)<(\oz,0)<(\oz,\oz)$. The map $\rho\colon R_0^2\to P(J,Q)$ that is the identity on $P(J,Q)$ and sends $(0,y)$ to $(\oz,y)$ for $y\in R$ is a homomorphism; for instance $\rho(x,0)+\rho(0,y)=(x,0)+(\oz,y)=(x,y)$. So $P(J,Q)$ is projective. It is not free, because its semilattice is not Boolean, and it is not an $R$-module. The smallest projective with a zero module is $\B=P(\{a\},0)$: the maps $1\mapsto\oz$ from $\B$ to $R_0$ and $x\mapsto\chi(x)$ from $R_0$ to $\B$ are homomorphisms of semimodules whose composite is the identity of $\B$.
+\end{example}
+
+\begin{proof}[Proof of Theorem~\ref{thm:proj}]
+\emph{If.} Let first $Q_j=R^{n_j}$ with every $n_j\ge1$. Let $J'$ be the set of pairs $(j,a)$ with $j\in J$ and $1\le a\le n_j$, preordered by $(j,a)\le(j',a')$ when $j\le j'$. Its down-sets are the sets $U'=\{(j,a):j\in U\}$ for $U\in\Idl(J)$, and since no $n_j$ is zero, $U\mapsto U'$ is an isomorphism from $\Idl(J)$ to the lattice of down-sets of $J'$. In $F=R_0^{J'}$ the support of $x$ is $\supp x=\{c:x_c\ne0\}$; then $\supp(x+y)=\supp x\cup\supp y$, and $\supp(rx)=\supp x$ for $r\in R$. So the elements whose support is a down-set form a subsemimodule $P$. Its idempotents are the elements $\oz_{U'}$, equal to $\oz$ on $U'$ and to $0$ elsewhere; its fibre over $\oz_{U'}$ is $R^{U'}=\bigoplus_{j\in U}R^{n_j}$; and its transports extend a vector by $\oz$, the zero of $R$. So $P\cong P(J,(R^{n_j}))$. Define $\rho\colon F\to P$ by keeping $x$ on $\supp x$, putting $\oz$ on ${\downarrow}\supp x\setminus\supp x$ and $0$ elsewhere. Then $\rho$ is the identity on $P$ and $\rho(rx)=r\rho(x)$, because $r\,\oz=\oz$. It is additive: let $S=\supp x$ and $S'=\supp y$. On $S\cup S'$ both $\rho(x+y)$ and $\rho(x)+\rho(y)$ have the coordinates of $x+y$, since adding $\oz$ or $0$ to an element of $R$ does not change it; on ${\downarrow}(S\cup S')\setminus(S\cup S')$ both are $\oz$, since $\oz+\oz=\oz+0=\oz$; elsewhere both are $0$. So $P(J,(R^{n_j}))$ is a retract of a free semimodule.
+
+In general, choose for each $j$ a module $Q'_j$ and an integer $n_j\ge1$ with $Q_j\oplus Q'_j\cong R^{n_j}$. The inclusions $Q_j\to R^{n_j}$ and the projections $R^{n_j}\to Q_j$ give, fibre by fibre, morphisms of strong semilattices over the identity of $\Idl(J)$, whose composite is the identity. So $P(J,Q)$ is a retract of $P(J,(R^{n_j}))$, hence of a free semimodule of finite rank.
+
+\emph{Only if.} A finitely generated projective $M$ is a retract of some $F=R_0^n$ through homomorphisms $i\colon M\to F$ and $r\colon F\to M$. They commute with $\varepsilon$, so they are morphisms of strong semilattices. Write $i_0,r_0$ for their restrictions to idempotents. The semilattice of $F$ is $\mathcal P(\{1,\dots,n\})$, a subset $S$ standing for the idempotent $\oz_S$, and $L_M$ is a retract of it; by Lemma~\ref{lem:retract}, $L_M\cong\Idl(J)$ for a finite poset $J$, with meet $l\wedge l'=r_0(i_0(l)\cap i_0(l'))$. The fibre of $F$ over $S$ is $F_S=R^S$. Each $M_l$ is a retract of the $R$-module $R^{i_0(l)}$, hence finitely generated projective. Each transport $T_{l,l'}$ is a split injection: if $\pi\colon R^{i_0(l')}\to R^{i_0(l)}$ is the projection on the coordinates in $i_0(l)$, then $r\pi i\,T_{l,l'}$ is the identity of $M_l$, because $i(m+l')$ is $i(m)$ extended by $\oz$.
+
+Let $l,l'\in L_M$ and write $A=i_0(l)$, $B=i_0(l')$, so that $i_0(l\vee l')=A\cup B$. Let $m\in M_{l\vee l'}$. Let $x\in F_A$ agree with $i(m)$ on $A$, and let $y\in F_B$ agree with $i(m)$ on $B\setminus A$ and be $\oz$ on $A\cap B$. Then $x+y=i(m)$, and applying $r$ gives $m=r(x)+r(y)$ with $r(x)\in M_l$ and $r(y)\in M_{l'}$. So
+\[
+M_{l\vee l'}=T(M_l)+T(M_{l'}).
+\]
+Now let $z\in T(M_l)\cap T(M_{l'})$. Writing $z=m+(l\vee l')$ with $m\in M_l$ shows that $i(z)=i(m)+\oz_{A\cup B}$ is $\oz$ on $B\setminus A$, and in the same way it is $\oz$ on $A\setminus B$. Let $w\in F_{A\cap B}$ agree with $i(z)$ on $A\cap B$. Then $w+\oz_{A\cup B}=i(z)$. Since $r$ maps $\oz_{A\cup B}=i(l\vee l')$ to $l\vee l'$, applying $r$ gives $z=T(r(w))$, and $r(w)$ lies in the fibre over $r_0(A\cap B)=l\wedge l'$. The other inclusion being clear,
+\[
+T(M_l)\cap T(M_{l'})=T(M_{l\wedge l'}).
+\]
+As the transports are injective, both identities also hold for the images in any fibre above $l\vee l'$.
+
+For $j\in J$ put $Q_j=M_{{\downarrow}j}/T(M_{{\downarrow}j\setminus\{j\}})$. It is a finitely generated projective module, because the image of a split injection is a direct summand. Choose a section $s_j\colon Q_j\to M_{{\downarrow}j}$. Let $U\in\Idl(J)$ and let $j_1,\dots,j_k$ be a linear extension of $U$, so that the sets $U_t=\{j_1,\dots,j_t\}$ are order ideals with $U_t=U_{t-1}\cup{\downarrow}j_t$ and $U_{t-1}\cap{\downarrow}j_t={\downarrow}j_t\setminus\{j_t\}$. By the two identities, $M_{U_t}=T(M_{U_{t-1}})+T(M_{{\downarrow}j_t})$ and $T(M_{U_{t-1}})\cap T(M_{{\downarrow}j_t})=T(M_{{\downarrow}j_t\setminus\{j_t\}})$, so $M_{U_t}/T(M_{U_{t-1}})\cong Q_{j_t}$, and $T s_{j_t}$ is a section of this quotient. By induction on $t$, the map $(q_j)\mapsto\sum_{j\in U}T(s_j(q_j))$ is an isomorphism from $\bigoplus_{j\in U}Q_j$ to $M_U$. It does not depend on the linear extension and is compatible with the transports. So $M\cong P(J,Q)$ by Theorem~\ref{thm:mod}.
+
+Every finite distributive lattice occurs, as the semilattice of idempotents of $P(J,R)$ for $J$ its poset of join-irreducible elements.
+\end{proof}
+
+\begin{proposition}[uniqueness]\label{prop:unique}
+If $M\cong P(J,Q)$, then $J$ is isomorphic to the poset of join-irreducible elements of $L_M$, and $Q_j\cong M_{{\downarrow}j}/T(M_{{\downarrow}j\setminus\{j\}})$. So the isomorphism classes of finitely generated projective $R_0$-semimodules correspond to the isomorphism classes of finite posets with a finitely generated projective $R$-module at each element.
+\end{proposition}
+
+\begin{proof}
+The semilattice of $P(J,Q)$ is $\Idl(J)$, whose join-irreducible elements are the principal ideals ${\downarrow}j$. The fibre over ${\downarrow}j$ is $\bigoplus_{i\le j}Q_i$, and the image in it of the fibre over ${\downarrow}j\setminus\{j\}$ is $\bigoplus_{i<j}Q_i$. An isomorphism of semimodules preserves all of this, by Theorem~\ref{thm:mod}.
+\end{proof}
+
+\begin{remark}\label{rem:one-idempotent}
+The $R$-modules are the semimodules with one idempotent, and none of them but $0$ is projective over $R_0$. If $i\colon M\to F$ is a homomorphism into a free semimodule with a left inverse, then $i(m)+i(-m)=i(0_M)=0_F$, and $F$ is zerosumfree because $R_0$ is (Proposition~\ref{prop:golan}), so $i=0$ and $M=0$. Projective $R$-modules occur instead as fibres over $\oz$, as for the one-point poset. The distributive lattice of Theorem~\ref{thm:proj} is created by the two zeros, since $\rho$ fills the down-closure of a support with the old zero $\oz$ and leaves the new zero outside it. For the zero ring, where $R_0=\B$, the proof reduces to Lemma~\ref{lem:retract}.
+\end{remark}
+
+\section{Functoriality and the symmetry of the new zero}\label{sec:sym}
+
+This section shows that the functor $R\mapsto R_0$ of \cite{FGJM} loses nothing on commutative rings, and that the two zeros can be recognized from the action of the units. In this section the zero ring is allowed.
+
+\begin{proposition}\label{prop:golan}
+The semiring $R_0$ is zerosumfree: $x+y=0$ only if $x=y=0$. It has no zero divisors: $xy=0$ only if $x=0$ or $y=0$. Every ideal $I$ of $R_0$ is subtractive: if $a\in I$ and $a+b\in I$, then $b\in I$.
+\end{proposition}
+
+\begin{proof}
+Sums and products of elements of $R$ lie in $R$, and $0$ is the only element outside $R$; this gives the first two statements. Let $a\in I$ and $a+b\in I$. If $b=0$ there is nothing to show, and if $a=0$, then $b=a+b\in I$. Otherwise $a$ and $a+b$ lie in $I\cap R$, which is closed under addition and under multiplication by elements of $R$; so $b=(a+b)+(-1)a$ lies in $I$.
+\end{proof}
+
+The words are those of Golan's book \cite{Golan}; subtractive ideals are treated in \cite[\S6.1]{FGJM}, where they are shown to be the kernels of homomorphisms and the ideals closed downwards in the natural order. The units of $R_0$ are the units of $R$.
+
+\begin{proposition}[full faithfulness]\label{prop:ff}
+Let $R$ and $S$ be commutative rings. The map $g\mapsto g_0$ is a bijection from the ring homomorphisms $R\to S$ to the semiring homomorphisms $R_0\to S_0$, which by definition preserve $0$ and $1$. In particular $\operatorname{Aut}R_0=\operatorname{Aut}R$.
+\end{proposition}
+
+\begin{proof}
+The map $g\mapsto g_0$ is injective. Let $f\colon R_0\to S_0$ be a homomorphism. The element $f(\oz)$ satisfies $f(\oz)+f(\oz)=f(\oz)$, and in $S_0$ the only such elements are $0$ and the old zero $\oz_S$ of $S$, since $x+x=x$ in the ring $S$ forces $x=\oz_S$. If $f(\oz)=0$, then $f(x)+f(-x)=f(\oz)=0$ for every $x\in R$, so $f(x)=0$ by Proposition~\ref{prop:golan}; in particular $f(1)=0$, which is not the unit of $S_0$. So $f(\oz)=\oz_S$. Suppose $f(x)=0$ for some $x\in R$. Then $f(-x)=f(x)+f(-x)=f(\oz)=\oz_S$, so $0=f(x)=f(-1)f(-x)=f(-1)\,\oz_S$; this forces $f(-1)=0$, and then $f(1)=f(-1)^2=0$, again impossible. Hence $f(R)\subseteq S$, the restriction $g$ of $f$ to $R$ is a ring homomorphism, and $f=g_0$.
+\end{proof}
+
+\begin{proposition}[the symmetry of the new zero]\label{prop:fix}
+The units of $R$ act on $R_0$ by multiplication, each by an automorphism of the additive monoid. Let $I$ be the ideal of $R$ generated by the elements $u-1$ with $u\in R^\times$. The common fixed points of the units are the elements of $\Ann_R(I)\sqcup\{0\}$. They are exactly the two zeros $0$ and $\oz$ if and only if $\Ann_R(I)=\{\oz\}$; this holds, for instance, when $R$ is a domain with a unit $u\neq1$, so for every ring of integers of a number field (take $u=-1$) and every field other than $\mathbb F_2$. The pair $\{0,\oz\}$ is closed under both operations and is isomorphic to $\B$, by $\oz\mapsto1$ and $0\mapsto0$.
+\end{proposition}
+
+\begin{proof}
+By distributivity each unit $u$ acts additively, with inverse $u^{-1}$. It fixes $0$, and it fixes $x\in R$ exactly when $(u-1)x=\oz$; so $x$ is fixed by every unit exactly when $Ix=\{\oz\}$. In a domain, $(u-1)x=\oz$ with $u\neq1$ forces $x=\oz$, and in a ring of integers $-1\neq1$. Finally, $\oz+\oz=\oz$, $\oz+0=\oz$, $0+0=0$, $\oz\cdot\oz=\oz$, $\oz\cdot0=0$ and $0\cdot0=0$ are the operations of $\B$.
+\end{proof}
+
+The unit of this copy of $\B$ is $\oz$, which is not the unit of $R_0$ unless $R=0$.
+
+\begin{remark}\label{rem:chains}
+For the zero ring, $(0)_0=\{\oz,0\}$ with $\oz=1$ is the Boolean semifield $\B$. The support map $\chi\colon R_0\to\B$ is the image of $R\to0$ under the functor, and by Proposition~\ref{prop:ff} it is the only homomorphism $R_0\to\B$. The construction of \cite[Definition 3.6]{FGJM} applies to every inverse semiring, in particular to the chain $L_n=\{0<1<\dots<n-1\}$ with $\max$ as addition and $\min$ as multiplication, which is an idempotent semiring. Its new zero is a new least element, which absorbs for $\min$, so $(L_n)_0\cong L_{n+1}$: starting from $\B=(0)_0\cong L_2$, adjoining zeros gives all the finite chains.
+\end{remark}
+
+\section{What remains open}
+The projective $R_0$-semimodules that are not finitely generated and the injective $R_0$-semimodules are not classified. We do not know whether Theorems~\ref{thm:mod} and \ref{thm:proj} extend to the inverse semirings of \cite[Construction 3.5]{FGJM}, where the fibre over the new zero is a bimodule and no longer zero, or to the iterated extensions $(R_0)_0$, $((R_0)_0)_0$, \dots\ of Remark~\ref{rem:chains}; nor whether Theorem~\ref{thm:mod} is the case $Q=\B$ of a description of the semimodules over every inverse semiring in the terms of \cite[Theorem~8.5]{CFMM}. The spectrum of Theorem~\ref{thm:spec} carries the localizations of $R_0$ as a structure sheaf, with stalk $\B$ at $\eta$; whether semimodules over it are the strong semilattices of quasi-coherent sheaves on $\Spec R$, and whether the resulting point of $\Spec\mathbb Z_0$ has a meaning in the geometry over $\B$ of \cite{CC}, are questions we leave open.
+
+\section*{Note on method}
+The construction for $\mathbb Z$ and for rings of integers, with its ideals, spectrum and congruences and the formula $\dim R_0=\dim R+1$, and special cases of the results of Section~\ref{sec:sym} (the fixed points of the units and the facts of Proposition~\ref{prop:golan} for $\mathbb Z$, and $\operatorname{Aut}R_0=\operatorname{Aut}R$), were first written in November 2025 by Gemini~2.5 Deep Think (Gemini app, Deep Think mode), which formalized an idea of the depositor's from a conversation with Gemini~2.5 Pro (Gemini app). In March 2026 a GPT-5-series Pro model in ChatGPT Pro mode, at reasoning effort ultra, extracted the usable part of that work, and GPT-5-series Pro models in ChatGPT Pro mode, at reasoning effort ultra, produced the statements and first proofs of Theorems~\ref{thm:mod} and \ref{thm:proj}. None of this work knew of \cite{FGJM}, which came first.
+
+Claude Opus 5.5 at effort max checked every proof, with exact computations of the ideals and prime ideals of Theorem~\ref{thm:spec} for $(\mathbb Z/n)_0$, $n=2,3,4,5,6,8,9,12$, of Remark~\ref{rem:product} for $\mathbb Z/6$, of Theorem~\ref{thm:mod} on 80 random subsemimodules of $(\mathbb F_p)_0^n$, and of Lemma~\ref{lem:retract} for $n\le4$. It wrote out the proof of Theorem~\ref{thm:proj} and the classification of congruences, proved the results of Section~\ref{sec:sym} in the generality given here, and wrote the first version of this text. Claude Fable 5.2 at effort max then followed every proof again and edited the text. It repaired one step (in the proof of Theorem~\ref{thm:proj} the free modules $R^{n_j}$ must have $n_j\ge1$), and added, with proofs, Corollary~\ref{cor:Z}, Proposition~\ref{prop:unique}, Remarks~\ref{rem:product} and \ref{rem:generic}, the description of the open sets in Theorem~\ref{thm:spec} and the examples. Before deposit two sentences of the draft were corrected, in Section~1.3 and in Remark~\ref{rem:one-idempotent}: an $R$-module is projective over $R_0$ only if it is zero. The error was found by GPT-6 Astra (ChatGPT Pro mode) in a later research run and checked by Claude Fable 5.2 at effort max; Claude Opus 5.5 at effort max made the correction and added the proof now in Remark~\ref{rem:one-idempotent}.
+
+Read at the source for this text: \cite{FGJM}, namely its introduction, Definitions 2.11 to 2.14, Construction 3.5, Definition 3.6, Example 3.7, \S3.1, Propositions 4.5 to 4.8, Corollary 4.12, Proposition 4.13, Propositions 5.1 and 5.2, \S6 up to Corollary 6.7, Theorem 7.2 and the last paragraph; and the introduction of \cite{CCs}. What is said about \cite{Golan}, \cite{Clifford}, \cite{Howie}, \cite{Birkhoff}, \cite{HK}, \cite{BH}, \cite{Rowen}, \cite{CC} and \cite{Pasku} is from memory or from the citations in \cite{FGJM} and \cite{CFMM}; these were not reopened, but their bibliographic data were checked against Crossref on 24 November 2026. \cite{CFMM} (version~2) was read at the source on 23 November 2026, its introduction, \S\S4--5 and \S8, by Claude Opus 5.5 at effort max. The search for Theorem~\ref{thm:proj} in the literature was a web search on 21 November 2026; it was not exhaustive, and the literature on semigroups was not searched for Corollary~\ref{cor:Z}. No human has checked this note. Our text is dedicated to the public domain under CC0~1.0. The permanent record of this work is WB-0008, \expandafter\url\expandafter{\recordurl}; its programs and check records are at \expandafter\url\expandafter{\workbenchurl}.
+
+\begin{thebibliography}{99}
+\bibitem{BH} R.~Balbes and A.~Horn, \emph{Projective distributive lattices}, Pacific J.\ Math.\ \textbf{33} (1970), 273--279.
+\bibitem{Birkhoff} G.~Birkhoff, \emph{Rings of sets}, Duke Math.\ J.\ \textbf{3} (1937), 443--454.
+\bibitem{Clifford} A.~H.~Clifford, \emph{Semigroups admitting relative inverses}, Ann.\ of Math.\ \textbf{42} (1941), 1037--1049.
+\bibitem{CC} A.~Connes and C.~Consani, \emph{Homological algebra in characteristic one}, Higher Structures \textbf{3} (2019), 155--247; arXiv:1703.02325.
+\bibitem{CCs} A.~Connes and C.~Consani, \emph{BC-system, absolute cyclotomy and the quantized calculus}, arXiv:2112.08820, \S1.
+\bibitem{FGJM} P.~F.~Faul, A.~Goswami, G.~Joubert and G.~Manuell, \emph{The case for inverse semirings}, arXiv:2411.12318 (v1, 19 November 2024).
+\bibitem{CFMM} E.~Caviglia, P.~F.~Faul, G.~Manuell and L.~Mesiti, \emph{Clifford semigroups and the monoidal Grothendieck construction}, arXiv:2607.12944 (v2, 26 August 2026).
+\bibitem{Golan} J.~S.~Golan, \emph{Semirings and their Applications}, Kluwer, 1999.
+\bibitem{HK} A.~Horn and N.~Kimura, \emph{The category of semilattices}, Algebra Universalis \textbf{1} (1971), 26--38.
+\bibitem{Howie} J.~M.~Howie, \emph{Fundamentals of Semigroup Theory}, Oxford University Press, 1995.
+\bibitem{Pasku} E.~Pasku, \emph{Clifford semigroups as functors and their cohomology}, Semigroup Forum \textbf{83} (2011), 75--88.
+\bibitem{Rowen} L.~H.~Rowen, \emph{Algebras with a negation map}, arXiv:1602.00353.
+\end{thebibliography}
+
+\end{document}

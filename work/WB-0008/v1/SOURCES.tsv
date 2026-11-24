@@ -1,0 +1,13 @@
+key	citation	address	used	how_read
+FGJM2024	P. F. Faul, A. Goswami, G. Joubert and G. Manuell, The case for inverse semirings, arXiv:2411.12318 (v1, 19 Nov 2024)	https://arxiv.org/abs/2411.12318	the construction R_0 (Definition 3.6), Proposition 6.1, Construction 3.5, Corollary 4.12, Propositions 4.13, 5.1, Theorem 7.2	read at the cited places
+CFMM2026	E. Caviglia, P. F. Faul, G. Manuell and L. Mesiti, Clifford semigroups and the monoidal Grothendieck construction, arXiv:2607.12944 (v2, 26 Aug 2026)	https://arxiv.org/abs/2607.12944	Theorem 8.5, Remark 8.7 (inverse semirings as lax monoidal functors)	read at the source: introduction, sections 4-5 and 8
+CC2021	A. Connes and C. Consani, BC-system, absolute cyclotomy and the quantized calculus, arXiv:2112.08820	https://arxiv.org/abs/2112.08820	context (section 1)	introduction read
+CC2019	A. Connes and C. Consani, Homological algebra in characteristic one, Higher Structures 3 (2019), 155-247; arXiv:1703.02325	https://arxiv.org/abs/1703.02325	context	cited from memory; bibliographic data checked against Crossref
+Clifford1941	A. H. Clifford, Semigroups admitting relative inverses, Ann. of Math. 42 (1941), 1037-1049		Clifford's theorem on commutative inverse monoids	cited from memory; bibliographic data checked against Crossref
+Howie1995	J. M. Howie, Fundamentals of Semigroup Theory, Oxford University Press, 1995		chapter 4 (strong semilattices)	cited from memory
+Birkhoff1937	G. Birkhoff, Rings of sets, Duke Math. J. 3 (1937), 443-454		finite distributive lattices are lattices of order ideals	cited from memory; bibliographic data checked against Crossref
+HK1971	A. Horn and N. Kimura, The category of semilattices, Algebra Universalis 1 (1971), 26-38		projective semilattices	cited from memory; bibliographic data checked against Crossref
+BH1970	R. Balbes and A. Horn, Projective distributive lattices, Pacific J. Math. 33 (1970), 273-279		projective distributive lattices	cited from memory; bibliographic data checked against Crossref
+Golan1999	J. S. Golan, Semirings and their Applications, Kluwer, 1999		terminology (zerosumfree, subtractive ideals)	cited from memory
+Pasku2011	E. Pasku, Clifford semigroups as functors and their cohomology, Semigroup Forum 83 (2011), 75-88		context	cited from memory; bibliographic data checked against Crossref
+Rowen2016	L. H. Rowen, Algebras with a negation map, arXiv:1602.00353	https://arxiv.org/abs/1602.00353	context (quasi-zeros)	cited from memory
